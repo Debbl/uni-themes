@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/app/[lang]/(home)/page.tsx:11
+msgid "Zero FOUC"
+msgstr ""
+
+#: src/app/[lang]/(home)/page.tsx:12
+msgid ""
+"A synchronous inline script resolves the theme before first paint - on "
+"every framework, not just Next.js."
+msgstr ""
+
+#: src/app/[lang]/(home)/page.tsx:15
+msgid "No React 19 warnings"
+msgstr ""
+
+#: src/app/[lang]/(home)/page.tsx:16
+msgid ""
+"The script renders from your server layout, never from a client component, "
+"so remounts cannot trigger the \"script tag while rendering\" error."
+msgstr ""
+
+#: src/app/[lang]/(home)/page.tsx:19
+msgid "Server-side reading"
+msgstr ""
+
+#: src/app/[lang]/(home)/page.tsx:20
+msgid ""
+"Cookie mode lets loaders, server components and server functions know the "
+"theme - getTheme() for Next.js, getThemeFromRequest() everywhere else."
+msgstr ""
+
+#: src/app/[lang]/(home)/page.tsx:23
+msgid "Framework-agnostic core"
+msgstr ""
+
+#: src/app/[lang]/(home)/page.tsx:24
+msgid ""
+"A plain DOM store with a 30-line useSyncExternalStore binding. Next.js, "
+"React Router, TanStack Start and Vite ship as subpath entries."
+msgstr ""
+
+#: src/app/[lang]/(home)/page.tsx:32
+msgid ""
+"Theme switching for React apps — zero-FOUC, React 19 safe, and it works the "
+"same in Next.js, React Router, TanStack Start and Vite."
+msgstr ""
+
+#: src/app/[lang]/(home)/page.tsx:42
+msgid "Get started"
+msgstr ""
+
+#: src/app/layout.with.tsx:21
+msgid ""
+"Theme switching for React apps: framework-agnostic core, zero-FOUC inline "
+"script, no React 19 script warnings."
+msgstr ""

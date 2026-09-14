@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/app/[lang]/(home)/page.tsx:11
+msgid "Zero FOUC"
+msgstr "零闪烁(FOUC)"
+
+#: src/app/[lang]/(home)/page.tsx:12
+msgid ""
+"A synchronous inline script resolves the theme before first paint - on "
+"every framework, not just Next.js."
+msgstr "同步内联脚本在首次绘制前完成主题解析——对所有框架生效,而不只是 Next.js。"
+
+#: src/app/[lang]/(home)/page.tsx:15
+msgid "No React 19 warnings"
+msgstr "没有 React 19 警告"
+
+#: src/app/[lang]/(home)/page.tsx:16
+msgid ""
+"The script renders from your server layout, never from a client component, "
+"so remounts cannot trigger the \"script tag while rendering\" error."
+msgstr "脚本由 server layout 渲染,从不经过客户端组件,路由重挂载不可能触发 \"script tag while rendering\" 错误。"
+
+#: src/app/[lang]/(home)/page.tsx:19
+msgid "Server-side reading"
+msgstr "服务端读取"
+
+#: src/app/[lang]/(home)/page.tsx:20
+msgid ""
+"Cookie mode lets loaders, server components and server functions know the "
+"theme - getTheme() for Next.js, getThemeFromRequest() everywhere else."
+msgstr "Cookie 模式让 loader、服务端组件和 server function 都能读到主题——Next.js 用 getTheme(),其他框架用 getThemeFromRequest()。"
+
+#: src/app/[lang]/(home)/page.tsx:23
+msgid "Framework-agnostic core"
+msgstr "框架无关内核"
+
+#: src/app/[lang]/(home)/page.tsx:24
+msgid ""
+"A plain DOM store with a 30-line useSyncExternalStore binding. Next.js, "
+"React Router, TanStack Start and Vite ship as subpath entries."
+msgstr "纯 DOM store 加 30 行 useSyncExternalStore 绑定。Next.js、React Router、TanStack Start 和 Vite 以子路径入口提供。"
+
+#: src/app/[lang]/(home)/page.tsx:32
+msgid ""
+"Theme switching for React apps — zero-FOUC, React 19 safe, and it works the "
+"same in Next.js, React Router, TanStack Start and Vite."
+msgstr "React 应用的主题切换——零闪烁、React 19 安全,在 Next.js、React Router、TanStack Start 和 Vite 中行为一致。"
+
+#: src/app/[lang]/(home)/page.tsx:42
+msgid "Get started"
+msgstr "快速开始"
+
+#: src/app/layout.with.tsx:21
+msgid ""
+"Theme switching for React apps: framework-agnostic core, zero-FOUC inline "
+"script, no React 19 script warnings."
+msgstr "React 应用的主题切换:框架无关内核、零闪烁内联脚本、没有 React 19 script 警告。"

@@ -1,23 +1,24 @@
+import { t } from 'best-i18n/macro'
+import { setRequestLocale } from 'best-i18n/next/server'
+import { LocaleProvider } from 'best-i18n/react'
 import { ThemeProvider } from 'best-themes'
 import { ThemeScript } from 'best-themes/script'
 import { Provider } from '~/components/provider'
 import { ThemeToggle } from '~/components/theme-toggle'
+import { i18nConfig } from '~/lib/best-i18n'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
-const DESCRIPTIONS: Record<string, string> = {
-  en: 'Theme switching for React apps: framework-agnostic core, zero-FOUC inline script, no React 19 script warnings.',
-  zh: 'React 应用的主题切换:框架无关内核、零闪烁内联脚本、没有 React 19 script 警告。',
-}
-
 export function withGenerateMetadata(lang: string): Metadata {
+  setRequestLocale(lang)
+
   return {
     metadataBase: new URL('https://best-themes.aiwan.run'),
     title: {
       default: 'best-themes',
       template: '%s | best-themes',
     },
-    description: DESCRIPTIONS[lang] ?? DESCRIPTIONS.en,
+    description: t`Theme switching for React apps: framework-agnostic core, zero-FOUC inline script, no React 19 script warnings.`,
   }
 }
 
@@ -31,10 +32,12 @@ export function WithLayout(lang: string, { children }: { children: ReactNode }) 
       </head>
       <body className='flex min-h-screen flex-col'>
         <ThemeProvider>
-          <Provider lang={lang}>
-            {children}
-            <ThemeToggle />
-          </Provider>
+          <LocaleProvider locale={lang} config={i18nConfig}>
+            <Provider lang={lang}>
+              {children}
+              <ThemeToggle />
+            </Provider>
+          </LocaleProvider>
         </ThemeProvider>
       </body>
     </html>
