@@ -1,0 +1,52 @@
+---
+title: 对比
+description: best-themes 与 next-themes 及其他主题库的关系
+---
+
+一份坦诚的对比——这里的每个库都解决了核心问题(无闪烁地打上 `.dark`
+class),差异在于核心之外的部分。
+
+## 一览
+
+| | best-themes | next-themes | remix-themes | @teispace/next-themes |
+| --- | --- | --- | --- | --- |
+| 零闪烁内联脚本 | ✅ | ✅ | ✅(cookie SSR) | ✅ |
+| React 19 重挂载安全 | ✅ server layout | ❌ 由客户端 Provider 渲染 | ✅ | ✅ `useServerInsertedHTML` |
+| `system` + 实时系统跟踪 | ✅ | ✅ | ❌ 需手动 | ✅ |
+| 服务端读取主题 | ✅ cookie 模式 | ❌ | ✅(始终 cookie) | ✅ hybrid |
+| 跨标签页同步 | ✅ | ✅ | ❌ | ✅ |
+| Next.js 之外的框架入口 | ✅ RR / TanStack / Vite | ❌ 能用但无适配 | ❌ 仅 Remix/RR | ❌ Next + 通用 React |
+| 维护状态 | ✅ | ❌ 2025 年起停滞 | ❌ 2025 年起停滞 | ✅ 新库(2026) |
+
+## vs next-themes
+
+`next-themes` 定义了这个品类和它的 API——这也是 `best-themes` 沿用相同
+prop 名的原因。促成重写的是两个结构性问题:
+
+1. **脚本住在 Provider 里。** next-themes 的防闪烁 `<script>` 由客户端
+   `ThemeProvider` 渲染。在 React 19 下,这个 Provider 一旦重挂载(切换根级
+   `[lang]` 段、`Activity` 边界),就会报 *"Encountered a script tag while
+   rendering"*。best-themes 把脚本拆成独立的服务端可渲染组件,由你放进
+   `<head>`——这个失败模式从结构上消失,而不是被打补丁。
+2. **服务端永远不知道主题。** next-themes 只用 localStorage,SSR 的 HTML
+   无法依赖主题。best-themes 的 cookie 模式让 loader 和服务端组件拿到答案。
+
+它同时处于无人维护状态:2025 年 3 月后再无发版,数十个 open issue,修复 PR
+无人 review。切换步骤见[迁移指南](/zh/docs/migration),很短。
+
+**继续用 next-themes 的理由**:它已经在你的项目里正常工作、你不在 React 19
+上遇到 Provider 重挂载、也不需要服务端读取。它的稳定恰恰来自于什么都不再变。
+
+## vs remix-themes
+
+`remix-themes` 是 Remix 的 cookie SSR 主题方案——对那个框架来说形状正确,
+但它不在客户端解析 `'system'`(要求用户显式选择)、没有跨标签页同步,维护
+也随 Remix v2 一起停滞。best-themes 用同样的 `getThemeFromRequest` 模式覆盖
+React Router 7,并带实时系统主题跟踪。
+
+## vs @teispace/next-themes
+
+功能最全的重写:hybrid 存储、View Transitions、类型化主题工厂、子树独立主
+题。如果你想要这些电池,它是真实的选项。best-themes 刻意保持更小——一个一
+口气能读完的内核、按框架划分的入口、没有你不需要的东西。按口味选:全家桶
+vs 最小表面积。
