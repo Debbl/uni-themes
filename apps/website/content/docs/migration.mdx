@@ -1,0 +1,37 @@
+---
+title: Migrating from next-themes
+description: Mostly drop-in, plus one move into the server layout
+---
+
+`ThemeProvider` and `useTheme` are drop-in for the common props:
+
+```diff
+- import { ThemeProvider, useTheme } from 'next-themes'
++ import { ThemeProvider, useTheme } from 'best-themes'
+```
+
+`attribute`, `defaultTheme`, `enableSystem`, `storageKey`,
+`disableTransitionOnChange`, `forcedTheme` and `themes` behave the same.
+
+Then move the anti-FOUC script into your **server** layout's `<head>` — this is
+the step that removes the React 19 warning:
+
+```tsx title="app/layout.tsx"
+import { ThemeScript } from 'best-themes/script'
+
+// inside <head>:
+<ThemeScript />
+```
+
+## Not carried over
+
+- **`value` class mapping** — themes land on `<html>` under their own names
+- **`scriptProps`** — pass `nonce` directly to `ThemeScript`
+- **nested providers** — an inner provider is independent, not a no-op; remove
+  redundant inner providers
+
+## New capabilities
+
+- `storage="cookie"` + `getTheme()` / `getThemeFromRequest()` for
+  server-side reading
+- One library across Next.js, React Router, TanStack Start and Vite

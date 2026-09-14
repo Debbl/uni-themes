@@ -2,6 +2,10 @@
 
 Theme switching for React apps — framework-agnostic core, zero-FOUC inline script, no React 19 script warnings. Works with Next.js, React Router, TanStack Start and Vite.
 
+Docs: <https://best-themes.aiwan.run>
+
+- **[`apps/website`](./apps/website)** — the documentation site (`pnpm dev:website`, deploys to best-themes.aiwan.run)
+
 - **[`packages/best-themes`](./packages/best-themes)** — the library ([README](./packages/best-themes/README.md))
 - **[`playground/nextjs`](./playground/nextjs)** — Next.js App Router playground (`pnpm dev:next`)
 - **[`playground/react-router`](./playground/react-router)** — React Router 7 / Remix successor, cookie mode + loader reading (`pnpm dev:rr`)

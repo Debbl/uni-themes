@@ -1,0 +1,50 @@
+---
+title: API Reference
+description: Options, hooks and subpath exports
+---
+
+## Options
+
+`ThemeProvider` and `ThemeScript` take the same config — pass it to both.
+
+| Option | Default | Description |
+| --- | --- | --- |
+| `themes` | `['light', 'dark']` | Selectable themes, excluding `'system'` |
+| `defaultTheme` | `'system'` | Falls back to `'light'` when `enableSystem: false` |
+| `enableSystem` | `true` | Track `prefers-color-scheme`, offer `'system'` |
+| `attribute` | `'class'` | Or any `data-*` attribute, e.g. `'data-theme'` |
+| `storageKey` | `'theme'` | localStorage key and cookie name |
+| `storage` | `'localStorage'` | `'cookie'` enables server reading (localStorage still mirrored for cross-tab sync); `'none'` disables persistence |
+| `enableColorScheme` | `true` | Keep `<html style="color-scheme">` in sync |
+| `disableTransitionOnChange` | `false` | Suppress CSS transitions for the frame a change lands on |
+| `forcedTheme` | — | Pin the rendered theme; `setTheme` still persists |
+
+`ThemeScript` additionally accepts `nonce` for CSP.
+
+## `useTheme()`
+
+```ts
+const {
+  theme, // selected theme, e.g. 'system'
+  resolvedTheme, // 'system' resolved to 'light' | 'dark'
+  systemTheme, // OS preference; undefined on the server
+  themes,
+  forcedTheme,
+  setTheme,
+} = useTheme()
+```
+
+On the server (and hydration's first pass) `theme` is `defaultTheme` and
+`resolvedTheme` guesses `'light'` for `'system'` — gate theme-dependent *text*
+on mount if you need exactness. The DOM attribute itself is always correct
+before paint.
+
+## Subpath exports
+
+| Entry | Contents |
+| --- | --- |
+| `best-themes` | `ThemeProvider`, `useTheme` (client) |
+| `best-themes/script` | `ThemeScript`, `buildThemeScript` (server-safe) |
+| `best-themes/core` | Framework-agnostic store + script builder + cookie helpers |
+| `best-themes/server` | `getThemeFromRequest`, `parseThemeCookie`, `serializeThemeCookie` |
+| `best-themes/next` | `getTheme()` via `next/headers` |

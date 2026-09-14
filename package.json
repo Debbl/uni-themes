@@ -24,7 +24,10 @@
     "dev:tanstack": "pnpm --filter playground-tanstack-start dev",
     "build:tanstack": "pnpm --filter playground-tanstack-start build",
     "dev:rr": "pnpm --filter playground-react-router dev",
-    "build:rr": "pnpm --filter playground-react-router build"
+    "build:rr": "pnpm --filter playground-react-router build",
+    "dev:website": "pnpm --filter @apps/website dev",
+    "build:website": "pnpm --filter @apps/website build",
+    "deploy:website": "pnpm --filter @apps/website deploy"
   },
   "devDependencies": {
     "@types/node": "^26.5.1",

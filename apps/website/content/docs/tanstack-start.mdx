@@ -1,0 +1,50 @@
+---
+title: TanStack Start
+description: Root route setup with a server function reading the cookie
+---
+
+```tsx title="src/routes/__root.tsx"
+import {
+  createRootRoute,
+  HeadContent,
+  Outlet,
+  Scripts,
+} from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
+import { getRequest } from '@tanstack/react-start/server'
+import { ThemeProvider } from 'best-themes'
+import { ThemeScript } from 'best-themes/script'
+import { getThemeFromRequest } from 'best-themes/server'
+
+const getServerTheme = createServerFn().handler(() =>
+  getThemeFromRequest(getRequest()),
+)
+
+export const Route = createRootRoute({
+  loader: () => getServerTheme(),
+  component: RootComponent,
+})
+
+function RootComponent() {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript storage="cookie" />
+        <HeadContent />
+      </head>
+      <body>
+        <ThemeProvider storage="cookie">
+          <Outlet />
+        </ThemeProvider>
+        <Scripts />
+      </body>
+    </html>
+  )
+}
+```
+
+Read the root loader's value anywhere with
+`useLoaderData({ from: '__root__' })`.
+
+The [playground](https://github.com/Debbl/best-themes/tree/main/playground/tanstack-start)
+runs this end to end.

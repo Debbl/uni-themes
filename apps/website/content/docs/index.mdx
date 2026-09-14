@@ -1,0 +1,43 @@
+---
+title: Introduction
+description: What best-themes is and why it exists
+---
+
+`best-themes` is theme switching for React apps: a framework-agnostic core, a
+zero-FOUC inline script, and thin per-framework entries for Next.js, React
+Router, TanStack Start and Vite.
+
+## Why not next-themes?
+
+`next-themes` is battle-tested but unmaintained. Its provider renders the
+anti-FOUC `<script>` from a client component, which triggers React 19's
+*"Encountered a script tag while rendering"* error whenever the tree remounts —
+switching a root `[lang]` segment, for example.
+
+`best-themes` splits the script out as a server-renderable component you put in
+`<head>` yourself, so the warning is impossible by construction. The rest of the
+API stays drop-in familiar.
+
+## Install
+
+```bash
+pnpm add best-themes
+```
+
+## The three pieces
+
+Every setup is the same three pieces, wherever your app runs:
+
+1. **`<ThemeScript />`** (from `best-themes/script`) — inline anti-FOUC script,
+   rendered in your server layout's `<head>`. Resolves the stored theme (or the
+   OS preference) and stamps it on `<html>` before first paint.
+2. **`<ThemeProvider>`** (from `best-themes`) — owns the theme store: system
+   tracking, cross-tab sync, persistence.
+3. **`useTheme()`** (from `best-themes`) — read `theme` / `resolvedTheme` /
+   `systemTheme`, call `setTheme`.
+
+Pass the same config to `ThemeScript` and `ThemeProvider`.
+
+Pick your framework guide: [Next.js](/docs/nextjs),
+[React Router](/docs/react-router), [TanStack Start](/docs/tanstack-start) or
+[Vite](/docs/vite).

@@ -1,0 +1,12 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "index",
+    "nextjs",
+    "react-router",
+    "tanstack-start",
+    "vite",
+    "api",
+    "migration"
+  ]
+}

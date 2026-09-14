@@ -1,0 +1,72 @@
+---
+title: Next.js
+description: App Router setup with a server-rendered ThemeScript
+---
+
+```tsx title="app/layout.tsx"
+// stays a server component
+import { ThemeProvider } from 'best-themes'
+import { ThemeScript } from 'best-themes/script'
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+```tsx title="components/theme-switcher.tsx"
+'use client'
+import { useTheme } from 'best-themes'
+
+export function ThemeSwitcher() {
+  const { resolvedTheme, setTheme } = useTheme()
+  return (
+    <button
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+    >
+      Toggle
+    </button>
+  )
+}
+```
+
+## Reading the theme on the server
+
+Switch on cookie storage and use `best-themes/next`:
+
+```tsx title="app/layout.tsx"
+<ThemeScript storage="cookie" />
+// ...
+<ThemeProvider storage="cookie">{children}</ThemeProvider>
+```
+
+```tsx
+import { getTheme } from 'best-themes/next'
+
+// in a server component, route handler or server action
+const theme = await getTheme() // 'dark' | 'light' | 'system' | null
+```
+
+`getTheme()` returns `null` for first-time visitors — the inline script falls
+back to the OS preference on the client.
+
+## Using with fumadocs
+
+fumadocs' `RootProvider` bundles its own next-themes integration; disable it
+and let best-themes own the `<html>` class (this site does exactly that):
+
+```tsx
+<RootProvider theme={{ enabled: false }}>{children}</RootProvider>
+```
