@@ -1,0 +1,67 @@
+:root {
+  --bg: #fafafa;
+  --fg: #171717;
+  --card: #ffffff;
+  --border: #e5e5e5;
+  --accent: #2563eb;
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --fg: #ededed;
+  --card: #171717;
+  --border: #262626;
+  --accent: #60a5fa;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+main {
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+button {
+  font: inherit;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+button[data-active='true'] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+
+dd {
+  margin: 0;
+  font-family: ui-monospace, monospace;
+}
+
+a {
+  color: var(--accent);
+}

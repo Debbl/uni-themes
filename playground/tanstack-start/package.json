@@ -1,0 +1,28 @@
+{
+  "name": "playground-tanstack-start",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TanStack Start playground for best-themes: cookie storage + server-side reading",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "start": "node .output/server/index.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.170.32",
+    "@tanstack/react-start": "^1.168.49",
+    "best-themes": "workspace:*",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^5.1.4",
+    "nitro": "^3.0.260610-beta",
+    "typescript": "^7.0.2",
+    "vite": "^8.0.0"
+  }
+}

@@ -1,0 +1,1 @@
+import{i as e,n as t,r as n}from"./index-b_psIi7A.js";import{t as r}from"./switcher-Ca-hQtBP.js";var i=e();function a(){let e=n({from:`__root__`});return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(`h1`,{children:`/other`}),(0,i.jsx)(r,{serverTheme:e}),(0,i.jsx)(`p`,{children:(0,i.jsx)(t,{to:`/`,children:`Back to /`})})]})}export{a as component};

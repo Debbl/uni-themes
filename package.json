@@ -20,7 +20,11 @@
     "dev:next": "pnpm --filter playground-nextjs dev",
     "build:next": "pnpm --filter playground-nextjs build",
     "dev:vite": "pnpm --filter playground-vite dev",
-    "build:vite": "pnpm --filter playground-vite build"
+    "build:vite": "pnpm --filter playground-vite build",
+    "dev:tanstack": "pnpm --filter playground-tanstack-start dev",
+    "build:tanstack": "pnpm --filter playground-tanstack-start build",
+    "dev:rr": "pnpm --filter playground-react-router dev",
+    "build:rr": "pnpm --filter playground-react-router build"
   },
   "devDependencies": {
     "@types/node": "^26.5.1",

@@ -1,0 +1,29 @@
+{
+  "name": "playground-react-router",
+  "version": "0.0.0",
+  "private": true,
+  "description": "React Router 7 (Remix successor) playground for best-themes: cookie storage + loader reading",
+  "type": "module",
+  "scripts": {
+    "dev": "react-router dev",
+    "build": "react-router build",
+    "start": "react-router-serve ./build/server/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-router/node": "^7.13.0",
+    "@react-router/serve": "^7.13.0",
+    "best-themes": "workspace:*",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router": "^7.13.0",
+    "isbot": "^5"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^7.13.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.0.0"
+  }
+}

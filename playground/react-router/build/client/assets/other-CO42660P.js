@@ -1,0 +1,1 @@
+import{O as e,r as t,t as n}from"./jsx-runtime-C7BNWRL5.js";import{t as r}from"./switcher-BM_cSJTw.js";var i=n(),a=e(function(){return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(`h1`,{children:`/other`}),(0,i.jsx)(r,{}),(0,i.jsx)(`p`,{children:(0,i.jsx)(t,{to:`/`,children:`Back to /`})})]})});export{a as default};
