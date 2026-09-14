@@ -1,0 +1,12 @@
+{
+  "title": "文档",
+  "pages": [
+    "index",
+    "nextjs",
+    "react-router",
+    "tanstack-start",
+    "vite",
+    "api",
+    "migration"
+  ]
+}

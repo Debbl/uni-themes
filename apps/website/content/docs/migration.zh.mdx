@@ -1,0 +1,36 @@
+---
+title: 从 next-themes 迁移
+description: 基本可以直接替换,外加把脚本挪进 server layout
+---
+
+`ThemeProvider` 和 `useTheme` 对常用 props 可以直接替换:
+
+```diff
+- import { ThemeProvider, useTheme } from 'next-themes'
++ import { ThemeProvider, useTheme } from 'best-themes'
+```
+
+`attribute`、`defaultTheme`、`enableSystem`、`storageKey`、
+`disableTransitionOnChange`、`forcedTheme` 和 `themes` 行为一致。
+
+然后把防闪烁脚本挪进**服务端** layout 的 `<head>` — 正是这一步消除了
+React 19 警告:
+
+```tsx title="app/layout.tsx"
+import { ThemeScript } from 'best-themes/script'
+
+// 放在 <head> 里:
+<ThemeScript />
+```
+
+## 未保留的特性
+
+- **`value` class 映射** — 主题以自己的名字直接写到 `<html>` 上
+- **`scriptProps`** — `nonce` 直接传给 `ThemeScript`
+- **嵌套 Provider** — 内层 Provider 是独立的,不再是 no-op;删掉多余的内层
+  Provider
+
+## 新增能力
+
+- `storage="cookie"` + `getTheme()` / `getThemeFromRequest()`,支持服务端读取
+- 一个库同时覆盖 Next.js、React Router、TanStack Start 和 Vite

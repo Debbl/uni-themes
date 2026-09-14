@@ -1,0 +1,42 @@
+---
+title: 介绍
+description: best-themes 是什么,以及它为什么存在
+---
+
+`best-themes` 是 React 应用的主题切换方案:一个框架无关的内核、一段零闪烁
+(FOUC)内联脚本,以及面向 Next.js、React Router、TanStack Start 和 Vite 的
+轻量框架入口。
+
+## 为什么不用 next-themes?
+
+`next-themes` 久经考验,但已停止维护。它的 Provider 在客户端组件里渲染防闪烁
+`<script>`,只要组件树重新挂载(例如切换根级 `[lang]` 动态段),就会触发
+React 19 的 *"Encountered a script tag while rendering"* 错误。
+
+`best-themes` 把脚本拆分为一个可由服务端渲染的组件,由你自己放进 `<head>`,
+这个警告从结构上就不可能发生。其余 API 保持与 next-themes 基本一致,可直接
+替换。
+
+## 安装
+
+```bash
+pnpm add best-themes
+```
+
+## 三个组成部分
+
+无论应用跑在哪个框架上,接入方式都是同样的三件套:
+
+1. **`<ThemeScript />`**(来自 `best-themes/script`)— 防闪烁内联脚本,渲染
+   在 server layout 的 `<head>` 里。在首次绘制前解析已存储的主题(或系统偏
+   好),并写到 `<html>` 上。
+2. **`<ThemeProvider>`**(来自 `best-themes`)— 持有主题 store:系统主题跟
+   踪、跨标签页同步、持久化。
+3. **`useTheme()`**(来自 `best-themes`)— 读取 `theme` / `resolvedTheme` /
+   `systemTheme`,调用 `setTheme`。
+
+`ThemeScript` 和 `ThemeProvider` 传入相同的配置即可。
+
+选择你的框架指南:[Next.js](/zh/docs/nextjs)、
+[React Router](/zh/docs/react-router)、
+[TanStack Start](/zh/docs/tanstack-start) 或 [Vite](/zh/docs/vite)。

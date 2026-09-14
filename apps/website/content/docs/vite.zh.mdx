@@ -1,0 +1,33 @@
+---
+title: Vite(SPA)
+description: 不需要脚本 - Provider 会在首次绘制前应用主题
+---
+
+SPA 没有服务端渲染的 HTML,不存在闪烁问题,直接跳过脚本:
+
+```tsx title="src/main.tsx"
+import { ThemeProvider } from 'best-themes'
+import { createRoot } from 'react-dom/client'
+import { App } from './app'
+
+createRoot(document.getElementById('root')!).render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>,
+)
+```
+
+Provider 会在首个订阅者出现时同步应用主题,先于浏览器绘制应用的第一帧。
+
+如果你希望在 bundle 加载之前就应用主题(例如 `index.html` 里有带样式的
+loading 页),可以自己内联这段脚本:
+
+```ts
+import { buildThemeScript } from 'best-themes/core'
+
+// 构建时注入 index.html:
+const script = `<script>${buildThemeScript()}</script>`
+```
+
+[playground](https://github.com/Debbl/best-themes/tree/main/playground/vite)
+在 StrictMode 下运行,证明 store 能安全通过双重渲染。

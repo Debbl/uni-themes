@@ -1,0 +1,49 @@
+---
+title: API 参考
+description: 配置项、hooks 和子路径导出
+---
+
+## 配置项
+
+`ThemeProvider` 和 `ThemeScript` 接受同一份配置 — 两边传一样的即可。
+
+| 配置项 | 默认值 | 说明 |
+| --- | --- | --- |
+| `themes` | `['light', 'dark']` | 可选主题列表,不含 `'system'` |
+| `defaultTheme` | `'system'` | `enableSystem: false` 时回退为 `'light'` |
+| `enableSystem` | `true` | 跟踪 `prefers-color-scheme`,提供 `'system'` 选项 |
+| `attribute` | `'class'` | 也可用任意 `data-*` 属性,例如 `'data-theme'` |
+| `storageKey` | `'theme'` | localStorage 键名和 cookie 名 |
+| `storage` | `'localStorage'` | `'cookie'` 启用服务端读取(localStorage 仍会镜像以支持跨标签页同步);`'none'` 关闭持久化 |
+| `enableColorScheme` | `true` | 同步 `<html style="color-scheme">` |
+| `disableTransitionOnChange` | `false` | 主题切换的那一帧抑制 CSS 过渡 |
+| `forcedTheme` | — | 固定渲染主题;`setTheme` 仍会持久化 |
+
+`ThemeScript` 额外接受 `nonce`(用于 CSP)。
+
+## `useTheme()`
+
+```ts
+const {
+  theme, // 选中的主题,例如 'system'
+  resolvedTheme, // 'system' 解析为 'light' | 'dark'
+  systemTheme, // 系统偏好;服务端为 undefined
+  themes,
+  forcedTheme,
+  setTheme,
+} = useTheme()
+```
+
+在服务端(以及 hydration 的第一遍渲染)`theme` 为 `defaultTheme`,
+`resolvedTheme` 对 `'system'` 猜测为 `'light'` — 如果需要精确值,把依赖主题
+的*文本*放到 mount 之后再渲染。DOM 属性本身在绘制前始终是正确的。
+
+## 子路径导出
+
+| 入口 | 内容 |
+| --- | --- |
+| `best-themes` | `ThemeProvider`、`useTheme`(客户端) |
+| `best-themes/script` | `ThemeScript`、`buildThemeScript`(服务端安全) |
+| `best-themes/core` | 框架无关的 store + 脚本构建器 + cookie 工具 |
+| `best-themes/server` | `getThemeFromRequest`、`parseThemeCookie`、`serializeThemeCookie` |
+| `best-themes/next` | 基于 `next/headers` 的 `getTheme()` |

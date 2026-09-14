@@ -1,0 +1,49 @@
+---
+title: TanStack Start
+description: 根路由接入,用 server function 读取 cookie
+---
+
+```tsx title="src/routes/__root.tsx"
+import {
+  createRootRoute,
+  HeadContent,
+  Outlet,
+  Scripts,
+} from '@tanstack/react-router'
+import { createServerFn } from '@tanstack/react-start'
+import { getRequest } from '@tanstack/react-start/server'
+import { ThemeProvider } from 'best-themes'
+import { ThemeScript } from 'best-themes/script'
+import { getThemeFromRequest } from 'best-themes/server'
+
+const getServerTheme = createServerFn().handler(() =>
+  getThemeFromRequest(getRequest()),
+)
+
+export const Route = createRootRoute({
+  loader: () => getServerTheme(),
+  component: RootComponent,
+})
+
+function RootComponent() {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript storage="cookie" />
+        <HeadContent />
+      </head>
+      <body>
+        <ThemeProvider storage="cookie">
+          <Outlet />
+        </ThemeProvider>
+        <Scripts />
+      </body>
+    </html>
+  )
+}
+```
+
+在任意组件里用 `useLoaderData({ from: '__root__' })` 读取根路由 loader 的值。
+
+[playground](https://github.com/Debbl/best-themes/tree/main/playground/tanstack-start)
+里有端到端可运行的完整示例。

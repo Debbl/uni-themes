@@ -1,0 +1,72 @@
+---
+title: Next.js
+description: App Router 接入,ThemeScript 由服务端渲染
+---
+
+```tsx title="app/layout.tsx"
+// 保持为服务端组件
+import { ThemeProvider } from 'best-themes'
+import { ThemeScript } from 'best-themes/script'
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+```tsx title="components/theme-switcher.tsx"
+'use client'
+import { useTheme } from 'best-themes'
+
+export function ThemeSwitcher() {
+  const { resolvedTheme, setTheme } = useTheme()
+  return (
+    <button
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+    >
+      切换
+    </button>
+  )
+}
+```
+
+## 在服务端读取主题
+
+切换到 cookie 存储,并使用 `best-themes/next`:
+
+```tsx title="app/layout.tsx"
+<ThemeScript storage="cookie" />
+// ...
+<ThemeProvider storage="cookie">{children}</ThemeProvider>
+```
+
+```tsx
+import { getTheme } from 'best-themes/next'
+
+// 在服务端组件、route handler 或 server action 中
+const theme = await getTheme() // 'dark' | 'light' | 'system' | null
+```
+
+首次访问的用户没有 cookie,`getTheme()` 返回 `null` — 客户端的内联脚本会回退
+到系统偏好。
+
+## 与 fumadocs 一起使用
+
+fumadocs 的 `RootProvider` 内置了 next-themes 集成;把它关掉,让 best-themes
+接管 `<html>` 的 class(本站就是这么做的):
+
+```tsx
+<RootProvider theme={{ enabled: false }}>{children}</RootProvider>
+```
