@@ -9,7 +9,7 @@
   },
   "routes": [
     {
-      "pattern": "best-themes.aiwan.run",
+      "pattern": "uni-themes.aiwan.run",
       "custom_domain": true,
     },
   ],

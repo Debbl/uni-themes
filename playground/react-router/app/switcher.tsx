@@ -1,4 +1,4 @@
-import { useTheme } from 'best-themes'
+import { useTheme } from 'uni-themes'
 import { useRouteLoaderData } from 'react-router'
 import type { loader as rootLoader } from './root'
 

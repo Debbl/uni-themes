@@ -22,8 +22,8 @@ export interface ThemeConfig {
   storageKey?: string
   /**
    * `'localStorage'` (default) persists client-side only. `'cookie'` also
-   * writes a cookie so the server can read the theme (see `best-themes/server`
-   * and `best-themes/next`); localStorage is still mirrored for cross-tab
+   * writes a cookie so the server can read the theme (see `uni-themes/server`
+   * and `uni-themes/next`); localStorage is still mirrored for cross-tab
    * sync. `'none'` never persists.
    */
   storage?: 'localStorage' | 'cookie' | 'none'

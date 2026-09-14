@@ -9,7 +9,7 @@ function Home() {
   const serverTheme = useLoaderData({ from: '__root__' })
   return (
     <>
-      <h1>best-themes · TanStack Start</h1>
+      <h1>uni-themes · TanStack Start</h1>
       <Switcher serverTheme={serverTheme} />
       <p>
         Pick a theme, reload: the server cookie row should match and the page

@@ -1,11 +1,11 @@
-import { useTheme } from 'best-themes'
+import { useTheme } from 'uni-themes'
 
 export function App() {
   const { theme, resolvedTheme, systemTheme, themes, setTheme } = useTheme()
 
   return (
     <main>
-      <h1>best-themes / vite</h1>
+      <h1>uni-themes / vite</h1>
       <p>
         {['system', ...themes].map((t) => (
           <button

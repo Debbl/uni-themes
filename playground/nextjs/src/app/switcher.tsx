@@ -1,6 +1,6 @@
 'use client'
 
-import { useTheme } from 'best-themes'
+import { useTheme } from 'uni-themes'
 
 export function Switcher() {
   const { theme, resolvedTheme, systemTheme, themes, setTheme } = useTheme()

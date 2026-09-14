@@ -6,7 +6,7 @@ description: 不需要脚本 - Provider 会在首次绘制前应用主题
 SPA 没有服务端渲染的 HTML,不存在闪烁问题,直接跳过脚本:
 
 ```tsx title="src/main.tsx"
-import { ThemeProvider } from 'best-themes'
+import { ThemeProvider } from 'uni-themes'
 import { createRoot } from 'react-dom/client'
 import { App } from './app'
 
@@ -23,7 +23,7 @@ Provider 会在首个订阅者出现时同步应用主题,先于浏览器绘制�
 loading 页),可以自己内联这段脚本:
 
 ```ts
-import { buildThemeScript } from 'best-themes/core'
+import { buildThemeScript } from 'uni-themes/core'
 
 // 构建时注入 index.html:
 const script = `<script>${buildThemeScript()}</script>`

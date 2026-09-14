@@ -5,8 +5,8 @@ description: App Router setup with a server-rendered ThemeScript
 
 ```tsx title="app/layout.tsx"
 // stays a server component
-import { ThemeProvider } from 'best-themes'
-import { ThemeScript } from 'best-themes/script'
+import { ThemeProvider } from 'uni-themes'
+import { ThemeScript } from 'uni-themes/script'
 
 export default function RootLayout({
   children,
@@ -28,7 +28,7 @@ export default function RootLayout({
 
 ```tsx title="components/theme-switcher.tsx"
 'use client'
-import { useTheme } from 'best-themes'
+import { useTheme } from 'uni-themes'
 
 export function ThemeSwitcher() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -44,7 +44,7 @@ export function ThemeSwitcher() {
 
 ## Reading the theme on the server
 
-Switch on cookie storage and use `best-themes/next`:
+Switch on cookie storage and use `uni-themes/next`:
 
 ```tsx title="app/layout.tsx"
 <ThemeScript storage="cookie" />
@@ -53,7 +53,7 @@ Switch on cookie storage and use `best-themes/next`:
 ```
 
 ```tsx
-import { getTheme } from 'best-themes/next'
+import { getTheme } from 'uni-themes/next'
 
 // in a server component, route handler or server action
 const theme = await getTheme() // 'dark' | 'light' | 'system' | null
@@ -65,7 +65,7 @@ back to the OS preference on the client.
 ## Using with fumadocs
 
 fumadocs' `RootProvider` bundles its own next-themes integration; disable it
-and let best-themes own the `<html>` class (this site does exactly that):
+and let uni-themes own the `<html>` class (this site does exactly that):
 
 ```tsx
 <RootProvider theme={{ enabled: false }}>{children}</RootProvider>

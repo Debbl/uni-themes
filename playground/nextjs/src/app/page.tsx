@@ -4,7 +4,7 @@ import { Switcher } from './switcher'
 export default function Page() {
   return (
     <main>
-      <h1>best-themes</h1>
+      <h1>uni-themes</h1>
       <Switcher />
       <p>
         <Link href='/other'>Navigate to /other</Link> and back — remounting

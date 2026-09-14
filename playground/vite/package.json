@@ -2,7 +2,7 @@
   "name": "playground-vite",
   "version": "0.0.0",
   "private": true,
-  "description": "Vite SPA playground for best-themes",
+  "description": "Vite SPA playground for uni-themes",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "best-themes": "workspace:*",
+    "uni-themes": "workspace:*",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },

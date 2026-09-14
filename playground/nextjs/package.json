@@ -2,7 +2,7 @@
   "name": "playground-nextjs",
   "version": "0.0.0",
   "private": true,
-  "description": "Next.js App Router playground for best-themes",
+  "description": "Next.js App Router playground for uni-themes",
   "type": "module",
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "best-themes": "workspace:*",
+    "uni-themes": "workspace:*",
     "next": "^16.3.5",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"

@@ -6,7 +6,7 @@ description: No script needed - the provider applies the theme before first pain
 A SPA has no server-rendered HTML to flash, so skip the script entirely:
 
 ```tsx title="src/main.tsx"
-import { ThemeProvider } from 'best-themes'
+import { ThemeProvider } from 'uni-themes'
 import { createRoot } from 'react-dom/client'
 import { App } from './app'
 
@@ -24,7 +24,7 @@ If you want the theme applied even before your bundle loads (e.g. a styled
 loading screen in `index.html`), inline the script yourself:
 
 ```ts
-import { buildThemeScript } from 'best-themes/core'
+import { buildThemeScript } from 'uni-themes/core'
 
 // at build time, inject into index.html:
 const script = `<script>${buildThemeScript()}</script>`

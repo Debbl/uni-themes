@@ -7,7 +7,7 @@ description: Mostly drop-in, plus one move into the server layout
 
 ```diff
 - import { ThemeProvider, useTheme } from 'next-themes'
-+ import { ThemeProvider, useTheme } from 'best-themes'
++ import { ThemeProvider, useTheme } from 'uni-themes'
 ```
 
 `attribute`, `defaultTheme`, `enableSystem`, `storageKey`,
@@ -17,7 +17,7 @@ Then move the anti-FOUC script into your **server** layout's `<head>` — this i
 the step that removes the React 19 warning:
 
 ```tsx title="app/layout.tsx"
-import { ThemeScript } from 'best-themes/script'
+import { ThemeScript } from 'uni-themes/script'
 
 // inside <head>:
 <ThemeScript />

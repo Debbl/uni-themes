@@ -7,7 +7,7 @@ description: 基本可以直接替换,外加把脚本挪进 server layout
 
 ```diff
 - import { ThemeProvider, useTheme } from 'next-themes'
-+ import { ThemeProvider, useTheme } from 'best-themes'
++ import { ThemeProvider, useTheme } from 'uni-themes'
 ```
 
 `attribute`、`defaultTheme`、`enableSystem`、`storageKey`、
@@ -17,7 +17,7 @@ description: 基本可以直接替换,外加把脚本挪进 server layout
 React 19 警告:
 
 ```tsx title="app/layout.tsx"
-import { ThemeScript } from 'best-themes/script'
+import { ThemeScript } from 'uni-themes/script'
 
 // 放在 <head> 里:
 <ThemeScript />

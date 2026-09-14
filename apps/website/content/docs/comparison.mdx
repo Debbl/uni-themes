@@ -1,6 +1,6 @@
 ---
 title: Comparison
-description: How best-themes relates to next-themes and the other theme libraries
+description: How uni-themes relates to next-themes and the other theme libraries
 ---
 
 An honest comparison — every library here solves the core problem (a `.dark`
@@ -8,7 +8,7 @@ class with no flash). The differences are in what happens around it.
 
 ## At a glance
 
-| | best-themes | next-themes | remix-themes | @teispace/next-themes |
+| | uni-themes | next-themes | remix-themes | @teispace/next-themes |
 | --- | --- | --- | --- | --- |
 | Zero-FOUC inline script | ✅ | ✅ | ✅ (cookie SSR) | ✅ |
 | React 19 remount-safe script | ✅ server layout | ❌ rendered by client provider | ✅ | ✅ `useServerInsertedHTML` |
@@ -20,17 +20,17 @@ class with no flash). The differences are in what happens around it.
 
 ## vs next-themes
 
-`next-themes` defined this category and its API — which is why `best-themes`
+`next-themes` defined this category and its API — which is why `uni-themes`
 keeps the same prop names. Two structural problems motivated the rewrite:
 
 1. **The script lives in the provider.** next-themes renders its anti-FOUC
    `<script>` from the client `ThemeProvider`. Under React 19, remounting that
    provider (switching a root `[lang]` segment, an `Activity` boundary) logs
-   *"Encountered a script tag while rendering"*. best-themes makes the script a
+   *"Encountered a script tag while rendering"*. uni-themes makes the script a
    separate server-renderable component you place in `<head>` — the failure
    mode is gone by construction, not patched.
 2. **The server never knows the theme.** next-themes is localStorage-only, so
-   SSR HTML can't depend on the theme. best-themes' cookie mode gives loaders
+   SSR HTML can't depend on the theme. uni-themes' cookie mode gives loaders
    and server components the answer.
 
 It's also unmaintained: no release since March 2025, dozens of open issues,
@@ -45,13 +45,13 @@ precisely because nothing changes.
 `remix-themes` is cookie-based SSR theming for Remix — the right shape for
 that framework, but it never resolves `'system'` on the client (it asks the
 user to pick), has no cross-tab sync, and its maintenance stalled alongside
-Remix v2. best-themes covers React Router 7 with the same
+Remix v2. uni-themes covers React Router 7 with the same
 `getThemeFromRequest` pattern plus live system tracking.
 
 ## vs @teispace/next-themes
 
 The most feature-rich rewrite: hybrid storage, view transitions, typed theme
 factories, scoped subtrees. If you want those batteries, it's a genuine
-option. best-themes deliberately stays smaller — a core you can read in one
+option. uni-themes deliberately stays smaller — a core you can read in one
 sitting, per-framework entries, and nothing you didn't ask for. Pick by taste:
 batteries-included vs minimal surface.

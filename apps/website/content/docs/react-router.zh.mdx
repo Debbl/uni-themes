@@ -6,9 +6,9 @@ description: Framework 模式(Remix 继任者),cookie 存储 + loader 读取
 使用 cookie 存储,root loader 就能在服务端读到主题:
 
 ```tsx title="app/root.tsx"
-import { ThemeProvider } from 'best-themes'
-import { ThemeScript } from 'best-themes/script'
-import { getThemeFromRequest } from 'best-themes/server'
+import { ThemeProvider } from 'uni-themes'
+import { ThemeScript } from 'uni-themes/script'
+import { getThemeFromRequest } from 'uni-themes/server'
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 import type { LoaderFunctionArgs } from 'react-router'
 
@@ -37,7 +37,7 @@ export default function App() {
 }
 ```
 
-组件里照常使用 `best-themes` 的 `useTheme()` — 非 RSC 框架不需要
+组件里照常使用 `uni-themes` 的 `useTheme()` — 非 RSC 框架不需要
 `'use client'`。
 
 [playground](https://github.com/Debbl/best-themes/tree/main/playground/react-router)

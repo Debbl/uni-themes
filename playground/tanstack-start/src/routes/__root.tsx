@@ -6,9 +6,9 @@ import {
 } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { getRequest } from '@tanstack/react-start/server'
-import { ThemeProvider } from 'best-themes'
-import { ThemeScript } from 'best-themes/script'
-import { getThemeFromRequest } from 'best-themes/server'
+import { ThemeProvider } from 'uni-themes'
+import { ThemeScript } from 'uni-themes/script'
+import { getThemeFromRequest } from 'uni-themes/server'
 import appCss from '../styles.css?url'
 
 /** What the server sees in the cookie - null until the user picks a theme. */
@@ -22,7 +22,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'best-themes · TanStack Start' },
+      { title: 'uni-themes · TanStack Start' },
     ],
     links: [{ rel: 'stylesheet', href: appCss }],
   }),

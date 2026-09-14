@@ -1,6 +1,6 @@
-import { ThemeProvider } from 'best-themes'
-import { ThemeScript } from 'best-themes/script'
-import { getThemeFromRequest } from 'best-themes/server'
+import { ThemeProvider } from 'uni-themes'
+import { ThemeScript } from 'uni-themes/script'
+import { getThemeFromRequest } from 'uni-themes/server'
 import {
   Links,
   Meta,
@@ -26,7 +26,7 @@ export default function App() {
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <title>best-themes · React Router</title>
+        <title>uni-themes · React Router</title>
         <ThemeScript storage='cookie' />
         <Meta />
         <Links />

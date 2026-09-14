@@ -5,8 +5,8 @@ description: App Router 接入,ThemeScript 由服务端渲染
 
 ```tsx title="app/layout.tsx"
 // 保持为服务端组件
-import { ThemeProvider } from 'best-themes'
-import { ThemeScript } from 'best-themes/script'
+import { ThemeProvider } from 'uni-themes'
+import { ThemeScript } from 'uni-themes/script'
 
 export default function RootLayout({
   children,
@@ -28,7 +28,7 @@ export default function RootLayout({
 
 ```tsx title="components/theme-switcher.tsx"
 'use client'
-import { useTheme } from 'best-themes'
+import { useTheme } from 'uni-themes'
 
 export function ThemeSwitcher() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -44,7 +44,7 @@ export function ThemeSwitcher() {
 
 ## 在服务端读取主题
 
-切换到 cookie 存储,并使用 `best-themes/next`:
+切换到 cookie 存储,并使用 `uni-themes/next`:
 
 ```tsx title="app/layout.tsx"
 <ThemeScript storage="cookie" />
@@ -53,7 +53,7 @@ export function ThemeSwitcher() {
 ```
 
 ```tsx
-import { getTheme } from 'best-themes/next'
+import { getTheme } from 'uni-themes/next'
 
 // 在服务端组件、route handler 或 server action 中
 const theme = await getTheme() // 'dark' | 'light' | 'system' | null
@@ -64,7 +64,7 @@ const theme = await getTheme() // 'dark' | 'light' | 'system' | null
 
 ## 与 fumadocs 一起使用
 
-fumadocs 的 `RootProvider` 内置了 next-themes 集成;把它关掉,让 best-themes
+fumadocs 的 `RootProvider` 内置了 next-themes 集成;把它关掉,让 uni-themes
 接管 `<html>` 的 class(本站就是这么做的):
 
 ```tsx

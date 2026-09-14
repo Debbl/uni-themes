@@ -1,10 +1,10 @@
-import { ThemeProvider } from 'best-themes'
-import { ThemeScript } from 'best-themes/script'
+import { ThemeProvider } from 'uni-themes'
+import { ThemeScript } from 'uni-themes/script'
 import './globals.css'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'best-themes playground',
+  title: 'uni-themes playground',
 }
 
 export default function RootLayout({

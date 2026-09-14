@@ -2,7 +2,7 @@
   "name": "@apps/website",
   "version": "0.0.0",
   "private": true,
-  "description": "Documentation website for best-themes, at best-themes.aiwan.run",
+  "description": "Documentation website for uni-themes, at uni-themes.aiwan.run",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,7 +13,7 @@
     "extract": "i18n-extract --locales en,zh --src src --messages messages"
   },
   "dependencies": {
-    "best-themes": "workspace:*",
+    "uni-themes": "workspace:*",
     "fumadocs-core": "^16.15.10",
     "fumadocs-mdx": "^15.4.0",
     "fumadocs-ui": "^16.15.10",

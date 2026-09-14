@@ -1,8 +1,8 @@
 import { t } from 'best-i18n/macro'
 import { setRequestLocale } from 'best-i18n/next/server'
 import { LocaleProvider } from 'best-i18n/react'
-import { ThemeProvider } from 'best-themes'
-import { ThemeScript } from 'best-themes/script'
+import { ThemeProvider } from 'uni-themes'
+import { ThemeScript } from 'uni-themes/script'
 import { Provider } from '~/components/provider'
 import { ThemeToggle } from '~/components/theme-toggle'
 import { i18nConfig } from '~/lib/best-i18n'
@@ -13,16 +13,16 @@ export function withGenerateMetadata(lang: string): Metadata {
   setRequestLocale(lang)
 
   return {
-    metadataBase: new URL('https://best-themes.aiwan.run'),
+    metadataBase: new URL('https://uni-themes.aiwan.run'),
     title: {
-      default: 'best-themes',
-      template: '%s | best-themes',
+      default: 'uni-themes',
+      template: '%s | uni-themes',
     },
     description: t`Theme switching for React apps: framework-agnostic core, zero-FOUC inline script, no React 19 script warnings.`,
   }
 }
 
-// This site dogfoods best-themes: the inline script below and our own
+// This site dogfoods uni-themes: the inline script below and our own
 // ThemeProvider replace fumadocs' built-in next-themes integration.
 export function WithLayout(lang: string, { children }: { children: ReactNode }) {
   return (

@@ -4,7 +4,7 @@ import { Switcher } from '../switcher'
 export default function Home() {
   return (
     <>
-      <h1>best-themes · React Router</h1>
+      <h1>uni-themes · React Router</h1>
       <Switcher />
       <p>
         Pick a theme, reload: the server cookie row should match and the page

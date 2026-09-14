@@ -6,9 +6,9 @@ description: Framework mode (the Remix successor) with cookie storage and loader
 Use cookie storage so the root loader can read the theme on the server:
 
 ```tsx title="app/root.tsx"
-import { ThemeProvider } from 'best-themes'
-import { ThemeScript } from 'best-themes/script'
-import { getThemeFromRequest } from 'best-themes/server'
+import { ThemeProvider } from 'uni-themes'
+import { ThemeScript } from 'uni-themes/script'
+import { getThemeFromRequest } from 'uni-themes/server'
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
 import type { LoaderFunctionArgs } from 'react-router'
 
@@ -37,7 +37,7 @@ export default function App() {
 }
 ```
 
-Components use `useTheme()` from `best-themes` as usual — no `'use client'`
+Components use `useTheme()` from `uni-themes` as usual — no `'use client'`
 needed outside RSC frameworks.
 
 The [playground](https://github.com/Debbl/best-themes/tree/main/playground/react-router)

@@ -1,4 +1,4 @@
-import { ThemeProvider } from 'best-themes'
+import { ThemeProvider } from 'uni-themes'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from './app'

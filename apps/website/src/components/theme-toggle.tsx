@@ -1,6 +1,6 @@
 'use client'
 
-import { useTheme } from 'best-themes'
+import { useTheme } from 'uni-themes'
 import { Monitor, Moon, Sun } from 'lucide-react'
 
 const MODES = ['system', 'light', 'dark']

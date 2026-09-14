@@ -1,8 +1,8 @@
-# best-themes
+# uni-themes
 
 > Theme switching for React apps — framework-agnostic core, zero-FOUC inline script, no React 19 script warnings. Works with Next.js, React Router, TanStack Start and Vite.
 
-`next-themes` is battle-tested but unmaintained: its provider renders the anti-FOUC `<script>` from a client component, which triggers React 19's *"Encountered a script tag while rendering"* error whenever the tree remounts (e.g. switching a root `[lang]` segment). `best-themes` splits the script out as a server-renderable component you put in `<head>` yourself — the warning is impossible by construction — and keeps the rest of the API drop-in familiar.
+`next-themes` is battle-tested but unmaintained: its provider renders the anti-FOUC `<script>` from a client component, which triggers React 19's *"Encountered a script tag while rendering"* error whenever the tree remounts (e.g. switching a root `[lang]` segment). `uni-themes` splits the script out as a server-renderable component you put in `<head>` yourself — the warning is impossible by construction — and keeps the rest of the API drop-in familiar.
 
 - **Zero FOUC** — a synchronous inline script resolves the theme before first paint
 - **No React 19 warnings** — the script never renders from a client component
@@ -14,15 +14,15 @@
 ## Install
 
 ```bash
-pnpm add best-themes
+pnpm add uni-themes
 ```
 
 ## Next.js (App Router)
 
 ```tsx
 // app/layout.tsx — stays a server component
-import { ThemeProvider } from 'best-themes'
-import { ThemeScript } from 'best-themes/script'
+import { ThemeProvider } from 'uni-themes'
+import { ThemeScript } from 'uni-themes/script'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ```tsx
 'use client'
-import { useTheme } from 'best-themes'
+import { useTheme } from 'uni-themes'
 
 export function ThemeSwitcher() {
   const { resolvedTheme, setTheme } = useTheme()
@@ -52,10 +52,10 @@ export function ThemeSwitcher() {
 }
 ```
 
-To read the theme on the server, switch on cookie storage and use `best-themes/next`:
+To read the theme on the server, switch on cookie storage and use `uni-themes/next`:
 
 ```tsx
-import { getTheme } from 'best-themes/next'
+import { getTheme } from 'uni-themes/next'
 
 // <ThemeScript storage="cookie" /> + <ThemeProvider storage="cookie">
 const theme = await getTheme() // 'dark' | 'light' | 'system' | null
@@ -65,9 +65,9 @@ const theme = await getTheme() // 'dark' | 'light' | 'system' | null
 
 ```tsx
 // app/root.tsx
-import { ThemeProvider } from 'best-themes'
-import { ThemeScript } from 'best-themes/script'
-import { getThemeFromRequest } from 'best-themes/server'
+import { ThemeProvider } from 'uni-themes'
+import { ThemeScript } from 'uni-themes/script'
+import { getThemeFromRequest } from 'uni-themes/server'
 
 export async function loader({ request }: LoaderFunctionArgs) {
   return { theme: getThemeFromRequest(request) } // storage: 'cookie'
@@ -94,14 +94,14 @@ export default function Root() {
 
 ## TanStack Start
 
-Render `<ThemeScript />` in the `head` of `__root.tsx` and wrap the outlet in `<ThemeProvider>`; `getThemeFromRequest` from `best-themes/server` works in server functions.
+Render `<ThemeScript />` in the `head` of `__root.tsx` and wrap the outlet in `<ThemeProvider>`; `getThemeFromRequest` from `uni-themes/server` works in server functions.
 
 ## Vite SPA
 
 No script needed — there is no server-rendered HTML to flash. Just wrap the app:
 
 ```tsx
-import { ThemeProvider } from 'best-themes'
+import { ThemeProvider } from 'uni-themes'
 
 createRoot(document.getElementById('root')!).render(
   <ThemeProvider>
@@ -110,7 +110,7 @@ createRoot(document.getElementById('root')!).render(
 )
 ```
 
-(If you want the theme applied even before React loads, paste `buildThemeScript()`'s output from `best-themes/core` into a `<script>` in `index.html`.)
+(If you want the theme applied even before React loads, paste `buildThemeScript()`'s output from `uni-themes/core` into a `<script>` in `index.html`.)
 
 ## API
 
@@ -151,11 +151,11 @@ On the server (and hydration's first pass) `theme` is `defaultTheme` and `resolv
 
 | Entry | Contents |
 | --- | --- |
-| `best-themes` | `ThemeProvider`, `useTheme` (client) |
-| `best-themes/script` | `ThemeScript`, `buildThemeScript` (server-safe) |
-| `best-themes/core` | Framework-agnostic store + script builder |
-| `best-themes/server` | `getThemeFromRequest`, cookie helpers (any `Request`-based server) |
-| `best-themes/next` | `getTheme()` via `next/headers` |
+| `uni-themes` | `ThemeProvider`, `useTheme` (client) |
+| `uni-themes/script` | `ThemeScript`, `buildThemeScript` (server-safe) |
+| `uni-themes/core` | Framework-agnostic store + script builder |
+| `uni-themes/server` | `getThemeFromRequest`, cookie helpers (any `Request`-based server) |
+| `uni-themes/next` | `getTheme()` via `next/headers` |
 
 ## Migrating from next-themes
 

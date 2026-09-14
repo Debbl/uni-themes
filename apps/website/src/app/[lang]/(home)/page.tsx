@@ -27,12 +27,12 @@ export default function HomePage() {
 
   return (
     <main className='flex flex-1 flex-col items-center px-4 py-16 text-center'>
-      <h1 className='mb-4 text-4xl font-bold'>best-themes</h1>
+      <h1 className='mb-4 text-4xl font-bold'>uni-themes</h1>
       <p className='text-fd-muted-foreground mb-8 max-w-xl text-lg'>
         {t`Theme switching for React apps — zero-FOUC, React 19 safe, and it works the same in Next.js, React Router, TanStack Start and Vite.`}
       </p>
       <pre className='bg-fd-muted mb-8 rounded-lg px-6 py-3 text-sm'>
-        <code>pnpm add best-themes</code>
+        <code>pnpm add uni-themes</code>
       </pre>
       <div className='mb-16 flex gap-4'>
         <Link
