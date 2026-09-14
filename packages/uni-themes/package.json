@@ -1,7 +1,7 @@
 {
   "name": "uni-themes",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@12.4.1",
   "description": "Theme switching for React apps: framework-agnostic core, zero-FOUC inline script, no React 19 script warnings. Works with Next.js, React Router, TanStack Start and Vite.",
   "author": "Brendan Dash <me@aiwan.run> (https://aiwan.run)",
