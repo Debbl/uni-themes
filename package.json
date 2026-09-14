@@ -1,65 +1,30 @@
 {
-  "name": "best-themes",
-  "type": "module",
-  "version": "0.0.1",
-  "packageManager": "pnpm@12.4.1",
-  "description": "Theme switching for React apps: framework-agnostic core, zero-FOUC inline script, no React 19 script warnings. Works with Next.js, React Router, TanStack Start and Vite.",
-  "author": "Brendan Dash <me@aiwan.run> (https://aiwan.run)",
-  "license": "MIT",
+  "name": "best-themes-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Monorepo for best-themes: theme switching for React apps and its playgrounds",
   "homepage": "https://github.com/Debbl/best-themes#readme",
+  "bugs": "https://github.com/Debbl/best-themes/issues",
+  "license": "MIT",
+  "author": "Brendan Dash <me@aiwan.run> (https://aiwan.run)",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Debbl/best-themes.git"
   },
-  "bugs": "https://github.com/Debbl/best-themes/issues",
-  "keywords": [
-    "theme",
-    "dark-mode",
-    "color-scheme",
-    "react",
-    "nextjs",
-    "react-router",
-    "tanstack-start",
-    "next-themes"
-  ],
-  "sideEffects": false,
-  "exports": {
-    ".": "./dist/index.mjs",
-    "./script": "./dist/script.mjs",
-    "./core": "./dist/core.mjs",
-    "./server": "./dist/server.mjs",
-    "./next": "./dist/next.mjs",
-    "./package.json": "./package.json"
-  },
-  "files": [
-    "dist"
-  ],
+  "type": "module",
   "scripts": {
-    "build": "tsdown",
-    "test": "vitest run",
-    "typecheck": "tsc --noEmit",
-    "release": "bumpp"
-  },
-  "peerDependencies": {
-    "next": ">=13",
-    "react": ">=18"
-  },
-  "peerDependenciesMeta": {
-    "next": {
-      "optional": true
-    }
+    "build": "pnpm --filter best-themes build",
+    "test": "pnpm --filter best-themes test",
+    "typecheck": "pnpm -r typecheck",
+    "release": "pnpm --filter best-themes release",
+    "dev:next": "pnpm --filter playground-nextjs dev",
+    "build:next": "pnpm --filter playground-nextjs build",
+    "dev:vite": "pnpm --filter playground-vite dev",
+    "build:vite": "pnpm --filter playground-vite build"
   },
   "devDependencies": {
     "@types/node": "^26.5.1",
-    "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0",
-    "bumpp": "^12.3.0",
-    "happy-dom": "^20.14.5",
-    "next": "^16.3.5",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "tsdown": "^0.23.0",
-    "typescript": "^7.0.2",
-    "vitest": "^5.0.0"
-  }
+    "typescript": "^7.0.2"
+  },
+  "packageManager": "pnpm@12.4.1"
 }
