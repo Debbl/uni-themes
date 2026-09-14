@@ -42,7 +42,7 @@ export default function HomePage() {
           {t`Get started`}
         </Link>
         <a
-          href='https://github.com/Debbl/best-themes'
+          href='https://github.com/Debbl/uni-themes'
           className='border-fd-border rounded-full border px-6 py-2 font-medium'
         >
           GitHub

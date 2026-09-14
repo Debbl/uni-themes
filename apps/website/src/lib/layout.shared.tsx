@@ -7,7 +7,7 @@ export function baseOptions(locale: string): BaseLayoutProps {
       title: 'uni-themes',
       url: locale === i18n.defaultLanguage ? '/' : `/${locale}`,
     },
-    githubUrl: 'https://github.com/Debbl/best-themes',
+    githubUrl: 'https://github.com/Debbl/uni-themes',
     // The floating ThemeToggle in the root layout replaces this - it runs on
     // uni-themes itself, not the next-themes integration fumadocs ships.
     themeSwitch: { enabled: false },

@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "description": "Monorepo for uni-themes: theme switching for React apps and its playgrounds",
-  "homepage": "https://github.com/Debbl/best-themes#readme",
-  "bugs": "https://github.com/Debbl/best-themes/issues",
+  "homepage": "https://github.com/Debbl/uni-themes#readme",
+  "bugs": "https://github.com/Debbl/uni-themes/issues",
   "license": "MIT",
   "author": "Brendan Dash <me@aiwan.run> (https://aiwan.run)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Debbl/best-themes.git"
+    "url": "git+https://github.com/Debbl/uni-themes.git"
   },
   "type": "module",
   "scripts": {
@@ -27,7 +27,7 @@
     "build:rr": "pnpm --filter playground-react-router build",
     "dev:website": "pnpm --filter @apps/website dev",
     "build:website": "pnpm --filter @apps/website build",
-    "deploy:website": "pnpm --filter @apps/website deploy"
+    "deploy:website": "pnpm --filter @apps/website run deploy"
   },
   "devDependencies": {
     "@types/node": "^26.5.1",

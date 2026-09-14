@@ -6,12 +6,12 @@
   "description": "Theme switching for React apps: framework-agnostic core, zero-FOUC inline script, no React 19 script warnings. Works with Next.js, React Router, TanStack Start and Vite.",
   "author": "Brendan Dash <me@aiwan.run> (https://aiwan.run)",
   "license": "MIT",
-  "homepage": "https://github.com/Debbl/best-themes#readme",
+  "homepage": "https://github.com/Debbl/uni-themes#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Debbl/best-themes.git"
+    "url": "git+https://github.com/Debbl/uni-themes.git"
   },
-  "bugs": "https://github.com/Debbl/best-themes/issues",
+  "bugs": "https://github.com/Debbl/uni-themes/issues",
   "keywords": [
     "theme",
     "dark-mode",
